@@ -50,7 +50,7 @@ function deleteUser(index){
     displayUsers();
 }
 
-//Funtion editar usuário
+//Function editar usuário
 function editUser(index){
 
     console.log("index antes do alterarBtn: " + index);
@@ -61,20 +61,15 @@ function editUser(index){
     document.getElementById('course').value = users[index].course;
 
     document.getElementById('alterarBtn').style.display = "unset";
-    
+
     //Alterar lista de usuário
     alterarBtn.addEventListener('click', (e) => {
         e.preventDefault();
         
-        //Coleta os valores novos do input
-        var name = document.getElementById('name').value;
-        var age = document.getElementById('age').value;
-        var course = document.getElementById('course').value;
-
-        //Passa para o array
-        users[index].name = name;
-        users[index].age = age;
-        users[index].course = course;
+        //Passa para o array os novos dados
+        users[index].name = document.getElementById('name').value;
+        users[index].age = document.getElementById('age').value;
+        users[index].course = document.getElementById('course').value;
 
         //Recarrega a lista usuário e limpa o form
         displayUsers();
@@ -83,9 +78,12 @@ function editUser(index){
         document.getElementById('alterarBtn').style.display = "none";
         console.log("index no final: " + index);
         console.log(users);
-    });
-
+    }, { once: true });
+ 
 }
+
+
+
 
 
 //Function lista de usuarios 
